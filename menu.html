@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      nav:first-child {
+        display: flex;
+        justify-content: center;
+      }
+      nav:nth-child(2) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      nav a {
+        text-decoration: none;
+        color: #000;
+        margin: 2em;
+      }
+      .underline {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 4px;
+        padding: 0;
+        background-color: pink;
+        transition: 0.5s;
+      }
+      #horizontal-underline {
+        /* transition: left 0.3s; */
+      }
+      #vertical-underline {
+        /* transition: top 0.3s; */
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <span id="horizontal-underline" class="underline"></span>
+      <a href="#">About</a>
+      <a href="#">Menu</a>
+      <a href="#">Store</a>
+      <a href="#">Service</a>
+      <a href="#">Responsibility</a>
+    </nav>
+
+    <nav>
+      <span id="vertical-underline" class="underline"></span>
+      <a href="#">About</a>
+      <a href="#">Menu</a>
+      <a href="#">Store</a>
+      <a href="#">Service</a>
+      <a href="#">Responsibility</a>
+    </nav>
+
+    <script>
+      const horizontalUnderline = document.querySelector(
+        "#horizontal-underline"
+      );
+      const horizontalMenus = document.querySelectorAll("nav:first-child a");
+
+      horizontalMenus.forEach((menu) =>
+        menu.addEventListener("click", (e) => horizontalIndicator(e))
+      );
+
+      function horizontalIndicator(e) {
+        horizontalUnderline.style.left = e.currentTarget.offsetLeft + "px";
+        horizontalUnderline.style.width = e.currentTarget.offsetWidth + "px";
+        horizontalUnderline.style.top =
+          e.currentTarget.offsetTop + e.currentTarget.offsetHeight + "px";
+      }
+
+      // vertical
+      const verticalUnderline = document.querySelector("#vertical-underline");
+      const verticalMenus = document.querySelectorAll("nav:nth-child(2) a");
+
+      verticalMenus.forEach((menu) =>
+        menu.addEventListener("click", (e) => verticalIndicator(e))
+      );
+
+      function verticalIndicator(e) {
+        verticalUnderline.style.left = e.currentTarget.offsetLeft + "px";
+        verticalUnderline.style.width = e.currentTarget.offsetWidth + "px";
+        verticalUnderline.style.top =
+          e.currentTarget.offsetTop + e.currentTarget.offsetHeight + "px";
+      }
+    </script>
+  </body>
+</html>
