@@ -14,19 +14,19 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <div class="container">
+    <div class="todo-section container">
       <h1>Todo List</h1>
       <div class="input-area">
         <input type="text" class="task-input" />
         <button class="add-btn">+</button>
       </div>
       <div class="task-area">
-        <div class="tab-list">
-          <div id="all" class="tab-item">모두</div>
-          <div id="ongoing" class="tab-item">진행중</div>
-          <div id="done" class="tab-item">끝남</div>
+        <ul class="tab-list" role="list">
+          <li id="all" class="tab-item" role="listitem">모두</li>
+          <li id="ongoing" class="tab-item" role="listitem">진행중</li>
+          <li id="done" class="tab-item" role="listitem">끝남</li>
           <span class="underline"></span>
-        </div>
+        </ul>
         <div class="task-board">
           <!-- <div class="task">
             <p></p>
